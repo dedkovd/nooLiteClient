@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>SettingsWindow.qml</file>
+        <file>MenuBar.qml</file>
+        <file>BarButton.qml</file>
+        <file>toolbar.png</file>
+        <file>exit.png</file>
+        <file>refresh.png</file>
+        <file>settings.png</file>
     </qresource>
 </RCC>
