@@ -2,11 +2,16 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>SettingsWindow.qml</file>
-        <file>MenuBar.qml</file>
-        <file>BarButton.qml</file>
-        <file>toolbar.png</file>
-        <file>exit.png</file>
-        <file>refresh.png</file>
-        <file>settings.png</file>
+        <file>ChannelsList.qml</file>
+        <file>MenuBackIcon.qml</file>
+        <file>MenuBackButton.qml</file>
+        <file>CentralForm.qml</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>Exit.png</file>
+        <file>On.png</file>
     </qresource>
 </RCC>

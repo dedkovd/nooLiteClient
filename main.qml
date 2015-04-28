@@ -1,13 +1,16 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
+import QtQuick.Controls 1.1
+import QtQuick.Controls.Styles 1.1
 import Qt.labs.settings 1.0
+import QtQuick.Layouts 1.1
 
-Window {
+ApplicationWindow {
     id: mainWindow
 
     visible: true
-    width: 360
-    height: 360
+    width: 600
+    height: 800
 
     property string serviceUrl: "http://localhost/"
 
@@ -15,24 +18,73 @@ Window {
         property alias serviceUrl: mainWindow.serviceUrl
     }
 
-    MenuBar {
-        onCloseCall: Qt.quit()
-        onSettingsCall: {
-            setWindow.url = serviceUrl
-            setWindow.visible = true
+    toolBar: ToolBar {
+        height: 64
+
+        style: ToolBarStyle {
+                padding {
+                    left: 8
+                    right: 8
+                    top: 3
+                    bottom: 3
+                }
+                background: Rectangle {
+                    implicitWidth: 100
+                    implicitHeight: 40
+                    //border.color: "#999"
+                    color: "#3C3C3C"
+                }
+            }
+
+        RowLayout {
+            anchors.fill: parent
+            MenuBackButton {
+              width: 48
+              height: 48
+
+              onActivated: {
+                  if (setWindow.state == "hidden") {
+                      setWindow.url = serviceUrl
+                  }
+                  setWindow.changeState()
+              }
+            }
+
+            Text {
+                text: qsTr("Lights control")
+                font.pointSize: 15
+                color: "white"
+                horizontalAlignment: Text.AlignHCenter
+                renderType: Text.NativeRendering
+                Layout.fillWidth: true
+            }
+
+            ToolButton {
+                iconSource: "/img/Exit.png"
+                onClicked: Qt.quit();
+            }
         }
+    }
+
+    CentralForm {
+        id: centralForm
+        anchors.fill: parent
     }
 
     SettingsWindow {
         id: setWindow
-        anchors.centerIn: parent
+
         width: parent.width/1.5
-        height: parent.height/5
-        visible: false
+        height: parent.height
+        state: "hidden"
 
         onSettingChanged: {
             serviceUrl = url
-            visible = false
+            centralForm.refresh(serviceUrl)
         }
+    }
+
+    Component.onCompleted: {
+        centralForm.refresh(serviceUrl)
     }
 }
