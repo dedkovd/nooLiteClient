@@ -12,14 +12,14 @@ ApplicationWindow {
     width: 600
     height: 800
 
-    property string serviceUrl: "http://localhost/"
+    property string serviceUrl: "http://rpi2.local"
 
     Settings {
         property alias serviceUrl: mainWindow.serviceUrl
     }
 
     toolBar: ToolBar {
-        height: 64
+//        height: 96
 
         style: ToolBarStyle {
                 padding {
@@ -31,14 +31,16 @@ ApplicationWindow {
                 background: Rectangle {
                     implicitWidth: 100
                     implicitHeight: 40
-                    //border.color: "#999"
                     color: "#3C3C3C"
                 }
             }
 
         RowLayout {
             anchors.fill: parent
+            anchors.margins: 15
             MenuBackButton {
+              id: menuBackButton
+
               width: 48
               height: 48
 
@@ -60,6 +62,8 @@ ApplicationWindow {
             }
 
             ToolButton {
+                width: parent.height*5
+
                 iconSource: "/img/Exit.png"
                 onClicked: Qt.quit();
             }

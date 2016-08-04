@@ -8,10 +8,13 @@ Rectangle {
 
   MouseArea {
     anchors.fill: parent
-    onClicked: {
-        menuBackIcon.state = menuBackIcon.state === "menu" ? "back" : "menu"
+    onClicked: {        
         root.activated()
     }
+  }
+
+  onActivated: {
+      menuBackIcon.state = menuBackIcon.state === "menu" ? "back" : "menu"
   }
 
   MenuBackIcon {

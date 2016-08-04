@@ -2,10 +2,15 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>SettingsWindow.qml</file>
-        <file>ChannelsList.qml</file>
+        <file>UngroupedChannels.qml</file>
         <file>MenuBackIcon.qml</file>
         <file>MenuBackButton.qml</file>
         <file>CentralForm.qml</file>
+        <file>SwipeArea.qml</file>
+        <file>GradientButton.qml</file>
+        <file>SmallButton.qml</file>
+        <file>LightsTitleButton.qml</file>
+        <file>ChannelsGroup.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>1.png</file>
@@ -13,5 +18,6 @@
         <file>3.png</file>
         <file>Exit.png</file>
         <file>On.png</file>
+        <file>Off.png</file>
     </qresource>
 </RCC>

@@ -1,4 +1,5 @@
 import QtQuick 2.2
+import QtQuick.Controls 1.1
 
 Rectangle {
     id: root
@@ -40,6 +41,10 @@ Rectangle {
         }
     ]
 
+    onSettingChanged: {
+        urlText.focus = false
+    }
+
     Column {
         anchors.fill: parent
         spacing: 10
@@ -50,24 +55,14 @@ Rectangle {
             text: qsTr("Service URL:")
         }
 
-        Rectangle
-        {
+        TextField {
+            id: urlText
             width: parent.width
-            height: 25
-            color: "#3C3C3C"
-            radius: 5
-            border.color: urlText.focus ? "steelblue" : "white"
 
-            TextInput {
-                id: urlText
-                color: "white"
-                anchors.fill: parent
-                anchors.margins: 5
+            text: url
 
-                text: url
-                onTextChanged: {
-                    url = text
-                }
+            onTextChanged: {
+                url = text
             }
         }
     }
